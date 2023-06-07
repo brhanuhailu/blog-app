@@ -21,7 +21,7 @@ eigth_post = Post.create(author: second_user, title: 'full stack', text: 'full s
 
 
 Comment.create(post: first_post, author: first_user, text: 'Hi Tom!' )
-Comment.create(post: second_post, author: second_user, text: 'Hi Lilly!' )
+Comment.create(post: second_post, author: second_user, text: 'Hi Lilly how are you!' )
 Comment.create(post: third_post, author: first_user, text: 'how are you doing!' )
 Comment.create(post: fourth_post, author: second_user, text: 'I am good you did well!' )
 Comment.create(post: fith_post, author: first_user, text: 'Wow greate thank you' )
