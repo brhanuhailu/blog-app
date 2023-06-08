@@ -17,7 +17,7 @@ RSpec.describe Like, type: :model do
     expect(subject.post).to eq(post)
   end
 
-  describe '#update_like_counter' do
+  describe '#update_like_counter likes' do
     it 'should increment the likes counter on the associated post' do
       expect { subject.update_like_counter }.to change { post.reload.likes_counter }.by(1)
     end
