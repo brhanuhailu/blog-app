@@ -1,1 +1,41 @@
 <h1> List of posts will be displayed here</h1>
+
+<div class="d-flex align-items-center mb-3 gap-3 text-primary-emphasis w-100">
+ <div>
+  <img src="<%= @user.photo %>" alt ="users photo" class ="border border-dark border-3 p-5">
+</div>
+
+<div class=" border border-dark border-3 w-100 p-3">
+   <h2 class="flex-grow-1 p-2"> <%= @user.name %></h2>
+    <div class=" d-flex justify-content-end">
+    <p> Number of posts: <%= @user.posts_counter %></p>
+    </div>
+</div>
+</div>
+
+<section>
+ <%@user.most_recent_posts.each_with_index do |post, index| %>
+   <%=link_to user_post_path(@user, post.id) do %>
+    <div class=" border border-dark border-3 mx-auto w-100 p-3 mb-3 text-dark">
+        <h3> Post #<%= index + 1 %></h3>
+        <p> <%= post.text %></p>
+    <div class="d-flex justify-content-end">
+       <span>Comments: <%= "#{post.comments_counter || 0}" %></span>
+       <span> Likes: <%= "#{post.likes_counter || 0}" %></span>
+    </div>
+</div>
+<% end %>
+
+<div class="border border-dark border-3 mx-auto w-100 p-3 mb-3">
+ <% post.most_recent_comments.each do |comment, index| %>
+    <span> <%= comment.author.name %></span>
+    <span> <%= comment.text %></span>
+    <% end %>
+</div>
+<% end %>
+
+<div class="d-flex align-items-center justify-content-center p-3">
+    <%= will_paginate @posts %>
+</div>
+</section>
+```
