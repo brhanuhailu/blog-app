@@ -4,15 +4,15 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @comment = current_user.comments.new(comment_params)
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.build(comment_params)
-    @comment.user = current_user
+    @comment.post_id = @post.id
     if @comment.save
-      flash[:notice] = 'Comment created successfully.'
-      redirect_to post_path(@post)
+      flash[:success] = 'Commented successfully!'
+      redirect_to posts_path(@comment.post)
     else
-      flash[:alert] = 'Unable to create comment.'
-      render 'posts/show'
+      @article = Post.find(params[:post_id])
+      redirect_to posts_path(@post)
     end
   end
 
