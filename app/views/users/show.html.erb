@@ -1,3 +1,4 @@
+<h1> Single User page displaying </h1>
 <div class ="d-flex align-items-center mb-3 gap-3 w-100">
 <div>
 <img src= "<%= @user.photo %>" alt ="users photo" class ="border border-dark border-3 p-5">
@@ -28,7 +29,9 @@
 <% end %>
 
 <div class="text-center mb-3">
-<a href=<%= "/users/#{@user.id}/posts"%> class="btn btn-primary text-dark">Show all posts</a>
+    <a href=<%=user_posts_path(@user)%> class="btn btn-primary btn-outline-secondary text-dark">
+    See All Posts
+  </a>
 </div>
 </div>
 </div>
