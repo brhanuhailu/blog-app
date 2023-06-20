@@ -19,7 +19,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'shows the correct placeholder text' do
-      expect(response.body).to include('List of All users')
+      expect(response.body).to include('List of users')
     end
   end
 
@@ -41,7 +41,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'shows the correct placeholder text' do
-      expect(response.body).to include('Single user')
+      expect(response.body).to include('Single User page displaying')
     end
   end
 end

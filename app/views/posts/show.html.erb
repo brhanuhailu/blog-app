@@ -22,7 +22,7 @@
 
 <div>
   <h2> Add Comments</h2>
-    <%= form_for [@post, Comment.new], url: "/comments/#{@post.id}" do |form| %>
+    <%= form_with model: @comment, url: user_post_comments_path(post_id: @post) do |form| %>
      <div>
         <%= form.text_area :text, placeholder: "write new comment..", class:"form-control" %>
         </div>
@@ -30,3 +30,4 @@
     <% end %>
 </div>
 </section>
+```

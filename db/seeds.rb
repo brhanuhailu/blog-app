@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+User.destroy_all
+Post.destroy_all
+Comment.destroy_all
+Like.destroy_all
 
 first_user = User.create(name: 'Tom', photo: 'https://fastly.picsum.photos/id/341/200/400.jpg?hmac=nHjdfC20Ag4oSRf8hOKqlWEhraq-Jqf_wn4S_rdM1oA', bio: 'Teacher from Mexico.')
 second_user = User.create(name: 'Lilly', photo: 'https://fastly.picsum.photos/id/315/200/300.jpg?hmac=C67WPcnxkaV_SPowHi-8nl3yoODZSBZqnoOdBObP5Ys', bio: 'Teacher from Poland.')
