@@ -7,6 +7,11 @@ class User < ApplicationRecord
   validates :photo, presence: true
   validates :bio, presence: true
   validates :posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  def posts_counter
+    posts.count
+  end
+
   def most_recent_posts
     posts.order(created_at: :desc).limit(3)
   end
