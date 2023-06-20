@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
-    @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 1)
+    @user = User.find_by(id: params[:user_id])
+    @posts = @user.posts.includes(:comments).paginate(page: params[:page], per_page: 1)
   end
 
   def show
     @user = User.find(params[:user_id])
-    @post = Post.find(params[:id])
+    @post = @user.posts.find(params[:id])
+    @comment = Comment.new
+    @like = Like.new
   end
 
   def new
@@ -14,14 +16,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(post_params)
-    if @post.save
-      flash[:success] = 'Post created successfully.'
-      redirect_to posts_path(@post)
-    else
-      flash[:alert] = 'Unable to create post.'
-      render :new, status: :unprocessable_entity
-    end
+    @user = User.find(params[:user_id])
+    @post = @user.posts.new(post_params)
+    @post.likes_counter = 0
+    @post.comments_counter = 0
+
+    redirect_to user_posts_path
   end
 
   private
