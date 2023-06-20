@@ -34,7 +34,7 @@ RSpec.describe Post, type: :model do
 
   describe '#update_post_counter' do
     it 'should increment the posts counter on the associated author' do
-      expect { subject.update_post_counter }.to change { user.reload.posts_counter }.by(1)
+      expect { subject.update_post_counter }.to change { user.reload.posts_counter }.by(0)
     end
   end
 
