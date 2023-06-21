@@ -10,31 +10,58 @@ Post.destroy_all
 Comment.destroy_all
 Like.destroy_all
 
-first_user = User.create(name: 'Tom', photo: 'https://fastly.picsum.photos/id/341/200/400.jpg?hmac=nHjdfC20Ag4oSRf8hOKqlWEhraq-Jqf_wn4S_rdM1oA', bio: 'Teacher from Mexico.')
-second_user = User.create(name: 'Lilly', photo: 'https://fastly.picsum.photos/id/315/200/300.jpg?hmac=C67WPcnxkaV_SPowHi-8nl3yoODZSBZqnoOdBObP5Ys', bio: 'Teacher from Poland.')
+author1 = User.create!(
+  name: "Tom",
+  photo: "https://picsum.photos/200/300",
+  bio: "This is author one bio",
+  email: "author1@gmail.com",
+  password: "author1"
+)
 
-first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post')
-second_post = Post.create(author: second_user, title: 'ruby ', text: 'ruby is amazing')
-third_post = Post.create(author: first_user, title: 'Ruby for beginner', text: 'Ruby also complex for beginner')
-fourth_post = Post.create(author: second_user, title: 'ruby on rails', text: 'ruby on rails is ')
-fith_post = Post.create(author: first_user, title: 'Hello Microverse', text: 'Microverse is cool school you will gain practical skill ')
-sixth_post = Post.create(author: second_user, title: 'Front end', text: 'Front end framewrks are react, bootsrap etc')
-seventh_post = Post.create(author: first_user, title: 'back end ', text: 'ruby on rail  programming languages is the new one')
-eigth_post = Post.create(author: second_user, title: 'full stack', text: 'full stack developer should know both front and backend programing') 
+author2 = User.create!(
+  name: "Brhanu",
+  photo: "https://picsum.photos/200/300",
+  bio: "This is author 2 bio",
+  email: "author2@gmail.com",
+  password: "author2"
+)
 
+post1 = Post.create!(
+  author: author1,
+  title: "Post one",
+  text: "This is post one body",
+  comments_counter: 0,
+  likes_counter: 0,
+)
 
+post2 = Post.create!(
+  author: author2,
+  title: "Post two",
+  text: "This is post two body",
+  comments_counter: 0,
+  likes_counter: 0,
+)
 
-Comment.create(post: first_post, author: first_user, text: 'Hi Tom!' )
-Comment.create(post: second_post, author: second_user, text: 'Hi Lilly how are you!' )
-Comment.create(post: third_post, author: first_user, text: 'how are you doing!' )
-Comment.create(post: fourth_post, author: second_user, text: 'I am good you did well!' )
-Comment.create(post: fith_post, author: first_user, text: 'Wow greate thank you' )
-Comment.create(post: sixth_post, author: second_user, text: 'you are welcome' )
-Comment.create(post: seventh_post, author: first_user, text: 'Thank you bye' )
-Comment.create(post: first_post, author: second_user, text: 'bye' )
+comment1 = Comment.create!(
+  author: author1,
+  post: post1,
+  text: "This is comment one"
+)
 
+comment2 = Comment.create!(
+  author: author2,
+  post: post2,
+  text: "This is comment two"
+)
 
-Like.create(post: first_post, author: first_user)
-Like.create(post: second_post, author: second_user)
+like1 = Like.create!(
+  author: author1,
+  post: post1
+)
+
+like2 = Like.create!(
+  author: author2,
+  post: post2
+)
 
 
