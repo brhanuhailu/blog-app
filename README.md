@@ -144,7 +144,8 @@ Not applicable.
 👤 **AmenMusingarimi**
 
 - GitHub: [@githubhandle](https://github.com/Amen-Musingarimi)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/atmusingarimi/)
+- LinkedIn [LinkedIn](https://linkedin.com/in/atmusingarimi/)
+- Twitter: [Twitter](https://twitter.com/MusingarimiT)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
