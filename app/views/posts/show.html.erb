@@ -12,11 +12,19 @@
 <div>
 <p><%= @post.text %></p>
 </div>
+<div>
+  <% if @user.id == @current_user.id %>
+    <%= button_to "Delete Post", user_post_path, method: :delete, class: "btn btn-danger text-white" %>
+  <% end %>
+</div>
 </div>
 
 <div class="border border-dark border-3 mx-auto w-100 p-3 mb-3">
 <% @post.most_recent_comments.each do |comment| %>
  <%= "#{comment.author.name}: #{comment.text}" %>
+ <% if @user.id == @current_user.id %>
+ <%= button_to "Delete comment", user_post_comment_path(@user, @post, comment), method: :delete, class: "btn btn-danger mt-2 btn btn-outline-primary" %>
+ <% end %>
 <% end %>
 </div>
 
@@ -30,4 +38,4 @@
     <% end %>
 </div>
 </section>
-```
+
